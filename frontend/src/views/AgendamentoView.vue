@@ -77,6 +77,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
+const API_URL = 'https://projeto-clinica-mocc.onrender.com'
 
 const agenda = ref({ pacienteId: '', data: '', medico: 'Dr. Rodrigo Faro' })
 const mensagemSucesso = ref('')
@@ -87,7 +88,7 @@ const listaConsultas = ref([])
 //busca lista do servidor
 async function buscarConsultas() {
   try {
-    const res = await axios.get('https://projeto-clinica-mocc.onrender.com/agendamentos')
+    const res = await axios.get(`${API_URL}/agendamentos`)
     listaConsultas.value = res.data
   } catch (error) {
     console.error("Erro ao carregar lista:", error)
@@ -98,7 +99,7 @@ async function buscarConsultas() {
 async function agendar() {
   mensagemSucesso.value = ''; alertaChuva.value = ''; mensagemErro.value = ''
   try {
-    const res = await axios.post('http://localhost:3000/agendamentos', agenda.value)
+    const res = await axios.post(`${API_URL}/agendamentos`, agenda.value)
     mensagemSucesso.value = "✅ " + res.data.mensagem
     if (res.data.detalhes?.previsaoChuva) alertaChuva.value = res.data.detalhes.previsaoChuva
     agenda.value = { pacienteId: '', data: '', medico: 'Dr. Rodrigo Faro' }
@@ -112,7 +113,7 @@ async function agendar() {
 async function excluirAgendamento(id) {
   if (confirm("Deseja cancelar esta consulta?")) {
     try {
-      await axios.delete(`http://localhost:3000/agendamentos/${id}`)
+      await axios.delete(`${API_URL}/agendamentos/${id}`)
       buscarConsultas()
     } catch (error) {
       alert("Erro ao excluir.")
@@ -120,17 +121,16 @@ async function excluirAgendamento(id) {
   }
 }
 
-// Limpar tudo
+//limpar tudo
 async function limparTudo() {
   if (confirm("Isso vai apagar TODOS os agendamentos. Tem certeza?")) {
     try {
-      await axios.delete('http://localhost:3000/agendamentos-reset')
+      await axios.delete(`${API_URL}/agendamentos-reset`)
       buscarConsultas()
     } catch (error) {
       alert("Erro ao limpar lista.")
     }
   }
 }
-
 onMounted(buscarConsultas)
 </script>

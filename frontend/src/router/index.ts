@@ -33,7 +33,7 @@ const router = createRouter({
       name: 'consultas',
       component: () => import('../views/ConsultasView.vue')
     }
-  ] // <--- Fecha a lista aqui
+  ]
 });
 
 export default router
