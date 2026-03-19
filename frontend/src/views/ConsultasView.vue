@@ -38,7 +38,7 @@ const consultas = ref([])
 
 async function buscarConsultas() {
   try {
-    const res = await axios.get('http://localhost:3000/agendamentos')
+    const res = await axios.get('https://projeto-clinica-mocc.onrender.com/agendamentos')
     consultas.value = res.data
     console.log("Consultas carregadas:", res.data)
   } catch (error) {

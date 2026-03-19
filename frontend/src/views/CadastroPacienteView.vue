@@ -42,7 +42,7 @@ const mensagem = ref('')
 async function salvar() {
   try {
     // chama backend na porta 3000
-    const res = await axios.post('http://localhost:3000/pacientes', paciente.value)
+    const res = await axios.post('https://projeto-clinica-mocc.onrender.com/pacientes', paciente.value)
     mensagem.value = "☺" + res.data.mensagem
     // Limpa o formulário
     paciente.value = { nome: '', cpf: '', telefone: '', cep: '' }

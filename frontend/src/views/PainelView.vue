@@ -41,7 +41,7 @@ const pacientes = ref([])
 
 async function carregarDados() {
   try {
-    const res = await axios.get('http://localhost:3000/pacientes')
+    const res = await axios.get('https://projeto-clinica-mocc.onrender.com/pacientes')
     pacientes.value = res.data
 } catch (error) {
   console.error("Erro ao carregar lista:", error)

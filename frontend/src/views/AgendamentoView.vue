@@ -87,7 +87,7 @@ const listaConsultas = ref([])
 //busca lista do servidor
 async function buscarConsultas() {
   try {
-    const res = await axios.get('http://localhost:3000/agendamentos')
+    const res = await axios.get('https://projeto-clinica-mocc.onrender.com/agendamentos')
     listaConsultas.value = res.data
   } catch (error) {
     console.error("Erro ao carregar lista:", error)

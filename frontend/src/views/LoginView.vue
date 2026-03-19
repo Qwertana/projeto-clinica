@@ -64,7 +64,7 @@ async function executarAcao() {
   
   try {
     console.log("Enviando dados para:", rota, usuario.value);
-    const res = await axios.post(`http://localhost:3000${rota}`, usuario.value)
+    const res = await axios.post(`https://projeto-clinica-mocc.onrender.com${rota}`, usuario.value)
     console.log("Resposta do servidor:", res.data);
 
     if (modoCadastro.value) {

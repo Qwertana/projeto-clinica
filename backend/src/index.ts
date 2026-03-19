@@ -8,7 +8,7 @@ import cors from 'cors';
 const app = express();
 app.use(cors());
 app.use(express.json());
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // conexao do banco de dados
 const MONGO_URI = "mongodb://admin:clinica123@ac-ufhda31-shard-00-00.eo5c0mi.mongodb.net:27017,ac-ufhda31-shard-00-01.eo5c0mi.mongodb.net:27017,ac-ufhda31-shard-00-02.eo5c0mi.mongodb.net:27017/?ssl=true&replicaSet=atlas-bp1uzi-shard-0&authSource=admin&appName=Cluster0";
