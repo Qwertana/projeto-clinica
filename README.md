@@ -1,4 +1,5 @@
 Sistema de Gestão de Clínica Médica - Self-Care Clinic
+
 Este é um projeto Full Stack completo para gerenciamento de clínicas, permitindo o cadastro de pacientes com busca automática de endereço e agendamento de consultas com integração de previsão do tempo. Criado para AVA2 de Desenvolvimento Backend I na Universidade Veiga de Almeida.
 
 •Demonstração:
