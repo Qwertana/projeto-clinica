@@ -1,0 +1,12 @@
+# Segurança
+.env
+.env.local
+
+# Dependências (essas pastas são gigantes e não devem subir)
+node_modules/
+dist/
+.vite/
+
+# Arquivos do Sistema
+.DS_Store
+Thumbs.db
